@@ -35,6 +35,12 @@ class Category{
      */
     protected $tasks;
 
+    public function __toString()
+    {
+        return $this->name;
+
+    }
+
 
     /**
      * @return mixed

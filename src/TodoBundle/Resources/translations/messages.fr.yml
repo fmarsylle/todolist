@@ -1,0 +1,27 @@
+message.welcome: Coucou le monde !
+message.addTaskFail: Erreur lors de l'ajout de la tache
+message.addTaskSuccess: Tache ajouté avec succés
+task.form.label: Libellé
+task.form.description: Description
+task.form.dueDate: Date limite
+task.form.remindAt: Rappel
+task.form.createdAt: Créer le
+task.form.updateAt: Mise à jour le
+task.form.status: Status
+task.form.save: Sauvegarder
+task.emptyList: Liste des taches vide
+user.registration.minmessage: Taille trop petite
+user.registration.maxmessage: Taille trop grande
+message.addCategoryFail: Erreur lors de l'ajout de la categorie
+message.addCategorySuccess: Categorie ajouté avec succés
+category.form.name: Nom
+category.form.description: Description
+category.form.color: Couleur
+
+message.addTagFail: Erreur lors de l'ajout du tag
+message.addTagSuccess: Tag ajouté avec succés
+tag.form.title : Titre
+
+task.form.category: Catégorie
+
+task.form.tag: Tag

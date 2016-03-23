@@ -1,3 +1,12 @@
-message.welcome: Coucou le monde !
+message.welcome: Hello World !
 message.addTaskFail: Error while adding new task
 message.addTaskSuccess: Task added with success
+task.form.label: Libellé
+task.form.description: Description
+task.form.dueDate: Date limite
+task.form.remindAt: Rappel
+task.form.createdAt: Créer le
+task.form.updateAt: Mise à jour le
+task.form.status: Status
+task.form.save: Sauvegarder
+task.emptyList: Liste des taches vide

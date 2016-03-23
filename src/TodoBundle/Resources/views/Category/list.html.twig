@@ -3,8 +3,8 @@
 {% block body %}
 
     <ul>
-        {% for task in tasks %}
-            <li>{{ task.label }}</li>
+        {% for category in categories %}
+            <li>{{ category.name }}</li>
         {% else %}
             <li>{% trans %}task.emptyList{% endtrans %}</li>
         {% endfor %}
