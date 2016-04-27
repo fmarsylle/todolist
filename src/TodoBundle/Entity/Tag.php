@@ -30,7 +30,7 @@ class Tag
     protected $title;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="tag")
+     * @ORM\ManyToMany(targetEntity="Task", mappedBy="tag")
      */
     protected $task;
 

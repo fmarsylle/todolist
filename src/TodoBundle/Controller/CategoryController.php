@@ -18,7 +18,7 @@ use TodoBundle\Form\Type\CategoryType;
 class CategoryController extends controller
 {
     /**
-     * @Route("/category/create")
+     * @Route("/category/create" , name="create_category")
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -53,7 +53,7 @@ class CategoryController extends controller
     }
 
     /**
-     * @Route("/category/list")
+     * @Route("/category/list" , name="list_category")
      */
     public function listAction()
     {

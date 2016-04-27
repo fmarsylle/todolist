@@ -11,7 +11,7 @@ use TodoBundle\Form\Type\TaskType;
 class TaskController extends Controller
 {
     /**
-     * @Route("/task/create")
+     * @Route("/task/create", name="create_task")
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -19,7 +19,8 @@ class TaskController extends Controller
     public function createAction(Request $request)
     {
 
-        $task=new Task();
+        $task=new Task($this->getUser());
+
 
         $form=$this->createForm(TaskType::class, $task);
         $form ->handleRequest($request);
@@ -46,15 +47,79 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("/task/list")
+     * @Route("/task/list" , name="list_task")
      */
     public function listAction(){
         $tasks = $this->getDoctrine()
             ->getRepository('TodoBundle:Task')
-            ->findAll();
+            ->findByUser($this->getUser());
 
         return $this->render('TodoBundle:Task:list.html.twig',array(
             'tasks'=>$tasks
         ));
     }
+
+    /**
+     * @Route("/task/listByDay" , name="list_task_by_day")
+     */
+    public function listByDayAction(){
+
+        $tasks = $this->getDoctrine()
+            ->getRepository('TodoBundle:Task')
+            ->findByDay($this->getUser());
+
+        return $this->render('TodoBundle:Task:list.html.twig',array(
+            'tasks'=>$tasks
+        ));
+    }
+
+    /**
+     * @Route("/task/listByWeek" , name="list_task_by_week")
+     */
+    public function listByWeekAction(){
+
+        $tasks = $this->getDoctrine()
+            ->getRepository('TodoBundle:Task')
+            ->findByWeek($this->getUser());
+
+        return $this->render('TodoBundle:Task:list.html.twig',array(
+            'tasks'=>$tasks
+        ));
+    }
+
+    /**
+     * @Route("/task/listByMonth" , name="list_task_by_month")
+     */
+    public function listByMonthAction(){
+
+        $tasks = $this->getDoctrine()
+            ->getRepository('TodoBundle:Task')
+            ->findByMonth($this->getUser());
+
+        return $this->render('TodoBundle:Task:list.html.twig',array(
+            'tasks'=>$tasks
+        ));
+    }
+
+
+
+    /**
+     * @Route("/task/category/{id}", name="list_task_category", requirements={"id" = "\d+"})
+     */
+    public function listTaskAction(Request $request){
+
+        $tasks=$this
+            ->getDoctrine()
+            ->getRepository('TodoBundle:Task')
+            ->findByCategory(
+                 $request->get('id')
+            );
+
+        return $this->render('TodoBundle:Task:list.html.twig',array(
+            'tasks'=>$tasks
+        ));
+    }
+
+
+
 }

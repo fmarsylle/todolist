@@ -4,7 +4,7 @@
 
     <ul>
         {% for category in categories %}
-            <li>{{ category.name }}</li>
+            <li><a href="{{ path('list_task_category',{id : category.id}) }}">{{ category.name }}</a></li>
         {% else %}
             <li>{% trans %}task.emptyList{% endtrans %}</li>
         {% endfor %}

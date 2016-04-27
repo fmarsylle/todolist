@@ -18,7 +18,7 @@ class TagController extends Controller
 {
 
     /**
-     * @Route("/tag/create")
+     * @Route("/tag/create" , name="create_tag")
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -53,7 +53,7 @@ class TagController extends Controller
     }
 
     /**
-     * @Route("/tag/list")
+     * @Route("/tag/list" , name="list_tag")
      */
     public function listAction(){
         $tags = $this->getDoctrine()

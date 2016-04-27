@@ -1,4 +1,35 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-{% trans %}message.welcome{% endtrans %}
+<p>{% trans %}message.welcome{% endtrans %}</p>
+    <h2>Filters</h2>
+    <ul>
+        <li>
+            <a href="{{ path('list_task_by_day') }}"> Task of the day</a>
+        </li>
+        <li>
+            <a href="{{ path('list_task_by_week') }}"> Task of the week</a>
+        </li>
+        <li>
+            <a href="{{ path('list_task_by_month') }}"> Task of the month</a>
+        </li>
+    </ul>
+    <h2>Task</h2>
+    <ul>
+        <li><a href="{{ path('create_task') }}">Create new task</a></li>
+        <li><a href="{{ path('list_task') }}">List task</a></li>
+
+    </ul>
+    <h2>Tag</h2>
+    <ul>
+
+        <li><a href="{{ path('create_tag') }}">Create new tag</a></li>
+        <li><a href="{{ path('list_tag') }}">List tag</a></li>
+
+    </ul>
+    <h2>Category</h2>
+    <ul>
+
+        <li><a href="{{ path('create_category') }}">Create new category</a></li>
+        <li><a href="{{ path('list_category') }}">List category</a></li>
+    </ul>
 {% endblock %}

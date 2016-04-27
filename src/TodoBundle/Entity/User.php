@@ -5,14 +5,18 @@ namespace TodoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
+ * @ExclusionPolicy("all")
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
 class User extends BaseUser{
 
     /**
+     * @Expose
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

@@ -5,8 +5,9 @@ namespace TodoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="TodoBundle\Entity\TaskRepository")
  * @ORM\Table(name="task")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Task{
 
@@ -60,7 +61,21 @@ class Task{
     protected $tag;
 
 
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function timestamps(){
+        if(is_null($this->createdAt)){
+            $this->createdAt = new \DateTime;
+        }
+        $this->updateAt=new \DateTime();
+    }
 
+    public function __construct(User $user)
+    {
+        return $this->user = $user;
+    }
 
 
     /**
