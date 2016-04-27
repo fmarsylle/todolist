@@ -4,7 +4,7 @@
 
     <ul>
         {% for tag in tags %}
-            <li>{{ tag.title }}</li>
+            <li><a href="{{ path('list_task_tag',{id : tag.id}) }}">{{ tag.title }}</a></li>
         {% else %}
             <li>{% trans %}task.emptyList{% endtrans %}</li>
         {% endfor %}

@@ -3,6 +3,7 @@
 namespace TodoBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class TaskRepository extends EntityRepository
@@ -51,6 +52,21 @@ class TaskRepository extends EntityRepository
         return $qb->getQuery()->getResult();
 
 
+
+    }
+
+
+    public function findByTag($id){
+        $qb=$this->getEntityManager()->createQueryBuilder();
+
+        $qb->select('t')
+            ->from('TodoBundle:Task','t')
+            ->innerJoin('t.tag', 't1' , Join::WITH, 't1.id = :tag')
+            ->setParameter('tag', $id);
+
+
+
+        return $qb->getQuery()->getResult();
 
     }
 

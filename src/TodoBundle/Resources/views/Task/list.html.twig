@@ -2,12 +2,21 @@
 
 {% block body %}
 
-    <ul>
+    <h2>Liste des tâches</h2>
+    <table class="table table-striped">
+
         {% for task in tasks %}
-            <li>{{ task.label }}</li>
+            <tr>
+                <td>{{ task.label }}</td>
+            </tr>
         {% else %}
-            <li>{% trans %}task.emptyList{% endtrans %}</li>
+            <tr>
+                <td>
+                    {% trans %}task.emptyList{% endtrans %}
+                </td>
+            </tr>
+
         {% endfor %}
-    </ul>
+    </table>
 
 {% endblock %}
